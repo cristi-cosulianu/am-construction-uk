@@ -1,15 +1,14 @@
 import { Link } from "@tanstack/react-router";
-import { Building2, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/am-prime-logo.jpg.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="bg-navy text-cream mt-24">
       <div className="container-page py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center justify-center size-10 rounded-md bg-cream text-navy">
-              <Building2 className="size-5" />
-            </span>
+          <div className="flex items-center gap-3">
+            <img src={logo.url} alt="AM Prime Construction" className="size-12 rounded-md object-cover" />
             <span className="font-display text-2xl">AM Prime Construction</span>
           </div>
           <p className="mt-5 max-w-md text-cream/70 text-sm leading-relaxed">
