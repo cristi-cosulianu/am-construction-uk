@@ -40,12 +40,12 @@
 :root {
   --radius: 0.5rem;
 
-  /* Brand palette - warm cream, deep navy, gold */
-  --cream: oklch(0.985 0.012 85);
-  --cream-deep: oklch(0.955 0.022 80);
-  --navy: oklch(0.22 0.04 255);
-  --gold: oklch(0.66 0.13 65);
-  --gold-soft: oklch(0.78 0.09 75);
+  /* Brand palette - AM Prime: deep blue, near-black, silver */
+  --cream: oklch(0.98 0.003 250);        /* near-white silver */
+  --cream-deep: oklch(0.93 0.006 250);   /* light silver grey */
+  --navy: oklch(0.18 0.015 260);         /* near-black charcoal */
+  --gold: oklch(0.52 0.22 260);          /* vivid logo blue */
+  --gold-soft: oklch(0.68 0.16 258);     /* lighter blue accent */
 
   --background: var(--cream);
   --foreground: var(--navy);
@@ -58,13 +58,13 @@
   --secondary: var(--cream-deep);
   --secondary-foreground: var(--navy);
   --muted: var(--cream-deep);
-  --muted-foreground: oklch(0.45 0.025 255);
+  --muted-foreground: oklch(0.5 0.015 260);
   --accent: var(--gold-soft);
-  --accent-foreground: var(--navy);
+  --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.9 0.015 80);
-  --input: oklch(0.9 0.015 80);
+  --border: oklch(0.88 0.008 260);
+  --input: oklch(0.88 0.008 260);
   --ring: var(--gold);
 }
 
