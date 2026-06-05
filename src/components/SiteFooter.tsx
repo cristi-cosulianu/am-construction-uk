@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/am-prime-mark.jpg.asset.json";
+import logo from "@/assets/am-prime-mark.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -8,7 +8,7 @@ export function SiteFooter() {
       <div className="container-page py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="flex items-center gap-3">
-            <img src={logo.url} alt="AM Prime Construction" className="size-12 rounded-md object-cover" />
+            <img src={logo.url} alt="AM Prime Construction" className="size-12 object-contain" />
             <span className="font-display text-2xl">AM Prime Construction</span>
           </div>
           <p className="mt-5 max-w-md text-cream/70 text-sm leading-relaxed">
