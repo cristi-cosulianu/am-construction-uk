@@ -28,7 +28,7 @@ export function SiteHeader() {
               <Building2 className="size-5" />
             </span>
             <span className="flex flex-col leading-tight">
-              <span className="font-display text-xl tracking-tight">ABV</span>
+              <span className="font-display text-xl tracking-tight">AM</span>
               <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Contractor</span>
             </span>
           </Link>

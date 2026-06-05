@@ -7,9 +7,9 @@ import renovation from "@/assets/service-renovation.jpg";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — ABV Contractor" },
+      { title: "Services — AM Construction" },
       { name: "description", content: "Complete construction and renovation services: drylining, steel framing, fit-outs, residential and commercial builds." },
-      { property: "og:title", content: "Services — ABV Contractor" },
+      { property: "og:title", content: "Services — AM Construction" },
       { property: "og:description", content: "Complete construction solutions." },
     ],
   }),

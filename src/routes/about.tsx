@@ -5,9 +5,9 @@ import teamImg from "@/assets/team.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — ABV Contractor" },
+      { title: "About — AM Construction" },
       { name: "description", content: "Industry-leading UK construction company with over 10 years of collective experience, dedicated to teamwork, trust and quality." },
-      { property: "og:title", content: "About ABV Contractor" },
+      { property: "og:title", content: "About AM Construction" },
       { property: "og:description", content: "Built on teamwork and trust." },
     ],
   }),
@@ -48,10 +48,10 @@ function AboutPage() {
         <div className="container-page max-w-3xl text-center">
           <h2 className="font-display text-4xl md:text-5xl text-gold">About us</h2>
           <p className="mt-8 text-foreground/85 leading-relaxed text-lg">
-            ABV Contractor is an industry-leading company in the UK, led by a long-serving team with
+            AM Construction is an industry-leading company in the UK, led by a long-serving team with
             over 10 years of collective experience in the construction industry across a diverse range
             of projects. Our leadership team is dedicated to delivering excellence in every project we
-            undertake. At ABV, we recognise the pivotal role of a dedicated workforce in driving the
+            undertake. At AM, we recognise the pivotal role of a dedicated workforce in driving the
             success of a company — that's why we prioritise the development of our team. Our dedication
             to client satisfaction is uncompromising. We don't just build structures; we build lasting
             relationships based on reliability, quality, and professionalism.
@@ -62,7 +62,7 @@ function AboutPage() {
       <section className="py-16">
         <div className="container-page">
           <div className="rounded-3xl overflow-hidden">
-            <img src={teamImg} alt="The ABV Contractor team" loading="lazy" className="w-full h-[60vh] object-cover" />
+            <img src={teamImg} alt="The AM Construction team" loading="lazy" className="w-full h-[60vh] object-cover" />
           </div>
         </div>
       </section>
