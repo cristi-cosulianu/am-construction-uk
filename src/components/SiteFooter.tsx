@@ -10,7 +10,7 @@ export function SiteFooter() {
             <span className="inline-flex items-center justify-center size-10 rounded-md bg-cream text-navy">
               <Building2 className="size-5" />
             </span>
-            <span className="font-display text-2xl">AM Construction</span>
+            <span className="font-display text-2xl">AM Prime Construction</span>
           </div>
           <p className="mt-5 max-w-md text-cream/70 text-sm leading-relaxed">
             A results-driven construction company with deep experience in residential,
@@ -39,7 +39,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-cream/10">
         <div className="container-page py-6 text-xs text-cream/60 flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} AM Construction Ltd. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} AM Prime Construction Ltd. All rights reserved.</span>
           <span>Built with care.</span>
         </div>
       </div>
