@@ -5,9 +5,9 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — AM Construction" },
-      { name: "description", content: "Get in touch with AM Construction to discuss your construction or renovation project." },
-      { property: "og:title", content: "Contact — AM Construction" },
+      { title: "Contact — AM Prime Construction" },
+      { name: "description", content: "Get in touch with AM Prime Construction to discuss your construction or renovation project." },
+      { property: "og:title", content: "Contact — AM Prime Construction" },
       { property: "og:description", content: "Discuss your project with our team." },
     ],
   }),

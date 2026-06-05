@@ -11,9 +11,9 @@ import project3 from "@/assets/project-3.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AM Construction — Building with passion, delivering with precision" },
+      { title: "AM Prime Construction — Building with passion, delivering with precision" },
       { name: "description", content: "UK construction company delivering residential, commercial and renovation projects with reliable timetables and transparent communication." },
-      { property: "og:title", content: "AM Construction — Building with passion" },
+      { property: "og:title", content: "AM Prime Construction — Building with passion" },
       { property: "og:description", content: "From new construction to complete renovations." },
     ],
   }),
@@ -46,7 +46,7 @@ function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/40 to-navy/80" />
         <div className="relative z-10 container-page h-full flex flex-col justify-end pb-20 text-cream">
-          <span className="text-xs uppercase tracking-[0.3em] text-gold-soft">AM Construction</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-gold-soft">AM Prime Construction</span>
           <h1 className="mt-4 font-display text-5xl md:text-7xl max-w-4xl text-cream">
             Building with passion, <br className="hidden md:block" />delivering with precision
           </h1>

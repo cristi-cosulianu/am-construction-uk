@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Building2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/am-prime-logo.jpg.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -23,12 +24,10 @@ export function SiteHeader() {
       </div>
       <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md border-b border-border">
         <div className="container-page flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <span className="inline-flex items-center justify-center size-10 rounded-md bg-navy text-cream">
-              <Building2 className="size-5" />
-            </span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img src={logo.url} alt="AM Prime Construction" className="size-12 rounded-md object-cover" />
             <span className="flex flex-col leading-tight">
-              <span className="font-display text-xl tracking-tight">AM</span>
+              <span className="font-display text-xl tracking-tight">AM Prime</span>
               <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Construction</span>
             </span>
           </Link>
