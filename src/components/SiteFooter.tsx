@@ -10,7 +10,7 @@ export function SiteFooter() {
             <span className="inline-flex items-center justify-center size-10 rounded-md bg-cream text-navy">
               <Building2 className="size-5" />
             </span>
-            <span className="font-display text-2xl">ABV Contractor</span>
+            <span className="font-display text-2xl">AM Construction</span>
           </div>
           <p className="mt-5 max-w-md text-cream/70 text-sm leading-relaxed">
             A results-driven construction company with deep experience in residential,
@@ -33,13 +33,13 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm text-cream/80">
             <li className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 text-gold" /> London, United Kingdom</li>
             <li className="flex items-start gap-2"><Phone className="size-4 mt-0.5 text-gold" /> +44 (0) 20 1234 5678</li>
-            <li className="flex items-start gap-2"><Mail className="size-4 mt-0.5 text-gold" /> hello@abvcontractor.co.uk</li>
+            <li className="flex items-start gap-2"><Mail className="size-4 mt-0.5 text-gold" /> hello@amconstruction.co.uk</li>
           </ul>
         </div>
       </div>
       <div className="border-t border-cream/10">
         <div className="container-page py-6 text-xs text-cream/60 flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} ABV Contractor Ltd. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} AM Construction Ltd. All rights reserved.</span>
           <span>Built with care.</span>
         </div>
       </div>

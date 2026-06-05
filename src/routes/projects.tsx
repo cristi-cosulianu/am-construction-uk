@@ -6,9 +6,9 @@ import project3 from "@/assets/project-3.jpg";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — ABV Contractor" },
-      { name: "description", content: "Selected residential, commercial and restoration projects delivered by ABV Contractor across the UK." },
-      { property: "og:title", content: "Projects — ABV Contractor" },
+      { title: "Projects — AM Construction" },
+      { name: "description", content: "Selected residential, commercial and restoration projects delivered by AM Construction across the UK." },
+      { property: "og:title", content: "Projects — AM Construction" },
       { property: "og:description", content: "Selected work from across the UK." },
     ],
   }),

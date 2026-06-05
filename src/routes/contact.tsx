@@ -5,9 +5,9 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — ABV Contractor" },
-      { name: "description", content: "Get in touch with ABV Contractor to discuss your construction or renovation project." },
-      { property: "og:title", content: "Contact — ABV Contractor" },
+      { title: "Contact — AM Construction" },
+      { name: "description", content: "Get in touch with AM Construction to discuss your construction or renovation project." },
+      { property: "og:title", content: "Contact — AM Construction" },
       { property: "og:description", content: "Discuss your project with our team." },
     ],
   }),
@@ -39,7 +39,7 @@ function ContactPage() {
             {[
               { icon: MapPin, label: "Office", value: "London, United Kingdom" },
               { icon: Phone, label: "Phone", value: "+44 (0) 20 1234 5678" },
-              { icon: Mail, label: "Email", value: "hello@abvcontractor.co.uk" },
+              { icon: Mail, label: "Email", value: "hello@amconstruction.co.uk" },
             ].map((c) => (
               <div key={c.label} className="flex items-start gap-4">
                 <span className="inline-flex items-center justify-center size-12 rounded-xl bg-gold/15 text-gold shrink-0">
