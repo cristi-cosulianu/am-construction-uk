@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/am-prime-logo.jpg.asset.json";
+import logo from "@/assets/am-prime-mark.jpg.asset.json";
 
 export function SiteFooter() {
   return (
