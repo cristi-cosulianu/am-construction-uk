@@ -51,7 +51,7 @@ function AboutPage() {
             AM Construction is an industry-leading company in the UK, led by a long-serving team with
             over 10 years of collective experience in the construction industry across a diverse range
             of projects. Our leadership team is dedicated to delivering excellence in every project we
-            undertake. At AM, we recognise the pivotal role of a dedicated workforce in driving the
+            undertake. At AM Construction, we recognise the pivotal role of a dedicated workforce in driving the
             success of a company — that's why we prioritise the development of our team. Our dedication
             to client satisfaction is uncompromising. We don't just build structures; we build lasting
             relationships based on reliability, quality, and professionalism.
