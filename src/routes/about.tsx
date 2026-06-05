@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import teamImg from "@/assets/team.jpg";
+import paloteImg from "@/assets/palote-petrica.png.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -14,11 +15,11 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const team = [
-  { name: "Alin Busi", role: "Managing Director" },
+const team: { name: string; role: string; image?: string }[] = [
+  { name: "Palote Petrica", role: "Managing Director", image: paloteImg.url },
   { name: "Paul Cormos", role: "Operations Director" },
   { name: "Marius Rotaru", role: "Project Lead" },
-  { name: "Petrica Palote", role: "Site Manager" },
+  { name: "Alin Busi", role: "Site Manager" },
   { name: "Mihail Untila", role: "Estimator" },
 ];
 
@@ -74,7 +75,11 @@ function AboutPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {team.map((m) => (
               <div key={m.name} className="bg-card border border-border/60 rounded-2xl p-6 text-center">
-                <div className="mx-auto size-24 rounded-full bg-gradient-to-br from-gold-soft to-gold/40" />
+                {m.image ? (
+                  <img src={m.image} alt={m.name} loading="lazy" className="mx-auto size-24 rounded-full object-cover" />
+                ) : (
+                  <div className="mx-auto size-24 rounded-full bg-gradient-to-br from-gold-soft to-gold/40" />
+                )}
                 <h3 className="mt-5 font-display text-lg">{m.name}</h3>
                 <p className="text-xs text-muted-foreground uppercase tracking-wider mt-1">{m.role}</p>
               </div>
