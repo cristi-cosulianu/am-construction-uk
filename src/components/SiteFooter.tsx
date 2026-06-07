@@ -32,7 +32,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm text-cream/80">
             <li className="flex items-start gap-2"><MapPin className="size-4 mt-0.5 text-gold" /> London, United Kingdom</li>
             <li className="flex items-start gap-2"><Phone className="size-4 mt-0.5 text-gold" /> +44 7584 253431</li>
-            <li className="flex items-start gap-2"><Mail className="size-4 mt-0.5 text-gold" /> hello@amconstruction.co.uk</li>
+            <li className="flex items-start gap-2"><Mail className="size-4 mt-0.5 text-gold" /> contact@am-prime-construction.co.uk</li>
           </ul>
         </div>
       </div>
