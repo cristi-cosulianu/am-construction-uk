@@ -39,7 +39,7 @@ function ContactPage() {
             {[
               { icon: MapPin, label: "Office", value: "London, United Kingdom" },
               { icon: Phone, label: "Phone", value: "+44 7584 253431" },
-              { icon: Mail, label: "Email", value: "hello@amconstruction.co.uk" },
+              { icon: Mail, label: "Email", value: "contact@am-prime-construction.co.uk" },
             ].map((c) => (
               <div key={c.label} className="flex items-start gap-4">
                 <span className="inline-flex items-center justify-center size-12 rounded-xl bg-gold/15 text-gold shrink-0">
