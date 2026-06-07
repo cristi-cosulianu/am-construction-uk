@@ -17,11 +17,9 @@ export default defineConfig({
     }),
     viteReact(),
     nitro({
-      config: {
-        preset: "cloudflare_module",
-        compatibilityDate: "2025-01-01",
-        compatibilityFlags: ["nodejs_compat"],
-      },
+      preset: "cloudflare_module",
+      compatibilityDate: "2025-01-01",
+      compatibilityFlags: ["nodejs_compat"],
     }),
   ],
   resolve: {
