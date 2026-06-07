@@ -19,7 +19,6 @@ export default defineConfig({
     nitro({
       preset: "cloudflare_module",
       compatibilityDate: "2025-01-01",
-      compatibilityFlags: ["nodejs_compat"],
     }),
   ],
   resolve: {
