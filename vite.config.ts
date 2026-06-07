@@ -3,7 +3,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
-import nitro from "nitro/vite";
+import { nitro } from "nitro/vite";
 
 // Explicit Vite config for self-hosting on Cloudflare Workers via wrangler.
 // Wrangler statically inspects this file and requires a literal `plugins: []` array.
