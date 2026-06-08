@@ -6,3 +6,8 @@ compatibility_flags = ["nodejs_compat"]
 [assets]
 directory = "./.output/public"
 binding = "ASSETS"
+
+[env.production]
+send_email = [
+  { binding = "SEND_EMAIL", type = "email_service" }
+]
