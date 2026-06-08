@@ -38,7 +38,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-cream/10">
         <div className="container-page py-6 text-xs text-cream/60 flex flex-wrap justify-between gap-2">
-          <span>© {new Date().getFullYear()} AM Prime Construction Ltd. All rights reserved.</span>
+          <span suppressHydrationWarning>© {new Date().getFullYear()} AM Prime Construction Ltd. All rights reserved.</span>
           <span>Built with care.</span>
         </div>
       </div>
