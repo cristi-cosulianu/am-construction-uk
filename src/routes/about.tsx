@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import teamImg from "@/assets/team.jpg";
-import paloteImg from "@/assets/palote-petrica.png.asset.json";
+import paloteImg from "@/assets/palote-petrica.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const team: { name: string; role: string; image?: string }[] = [
-  { name: "Petrica Palote", role: "Managing Director", image: paloteImg.url },
+  { name: "Petrica Palote", role: "Managing Director", image: paloteImg },
   { name: "Alin Micle", role: "Operations Director" },
   { name: "Cătălin Pagu", role: "Site Manager" },
 ];
