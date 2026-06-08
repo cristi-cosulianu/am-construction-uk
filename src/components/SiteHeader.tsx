@@ -25,7 +25,7 @@ export function SiteHeader() {
       <header className="sticky top-0 z-40 bg-background/85 backdrop-blur-md border-b border-border">
         <div className="container-page flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo.url} alt="AM Prime Construction" className="size-12 object-contain" />
+            <img src={logo} alt="AM Prime Construction" className="size-12 object-contain" />
             <span className="flex flex-col leading-tight">
               <span className="font-display text-xl tracking-tight">AM Prime</span>
               <span className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">Construction</span>
