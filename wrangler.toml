@@ -1,4 +1,4 @@
-name = "am-prime-construction"
+name = "am-construction-uk"
 main = "./.output/server/index.mjs"
 compatibility_date = "2025-01-01"
 compatibility_flags = ["nodejs_compat"]
