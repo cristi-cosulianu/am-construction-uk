@@ -70,7 +70,6 @@ function AboutPage() {
         <div className="container-page">
           <span className="text-xs uppercase tracking-[0.3em] text-gold">Leadership</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl">The people behind the projects</h2>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           <div className="mt-14 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {team.map((m) => (
               <div key={m.name} className="bg-card border border-border/60 rounded-2xl p-6 text-center">
