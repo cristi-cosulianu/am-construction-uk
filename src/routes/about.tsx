@@ -18,7 +18,6 @@ export const Route = createFileRoute("/about")({
 const team: { name: string; role: string; image?: string }[] = [
   { name: "Petrica Palote", role: "Commercial Director", image: paloteImg },
   { name: "Alin Micle", role: "CEO - Founder" },
-  { name: "Cătălin Pagu", role: "Managing Director" },
 ];
 
 function AboutPage() {
