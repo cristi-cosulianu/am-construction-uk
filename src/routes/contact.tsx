@@ -1,115 +1,101 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { useState } from 'react'
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
-export const Route = createFileRoute('/contact')({
-  component: ContactComponent,
-})
+export const Route = createFileRoute("/contact")({
+  head: () => ({
+    meta: [
+      { title: "Contact — AM Prime Construction" },
+      { name: "description", content: "Get in touch with AM Prime Construction to discuss your construction or renovation project." },
+      { property: "og:title", content: "Contact — AM Prime Construction" },
+      { property: "og:description", content: "Discuss your project with our team." },
+    ],
+  }),
+  component: ContactPage,
+});
 
-function ContactComponent() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [status, setStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setStatus(null)
-
-    const formData = new FormData(e.currentTarget)
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      message: formData.get('message'),
-    }
-
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-
-      if (response.ok) {
-        setStatus({ 
-          type: 'success', 
-          message: 'Thank you! Your message has been sent. We will contact you soon.' 
-        })
-        e.currentTarget.reset()
-      } else {
-        throw new Error('Failed to send')
-      }
-    } catch (error) {
-      setStatus({ 
-        type: 'error', 
-        message: 'Sorry, there was an error sending your message. Please try again or call us directly.' 
-      })
-    } finally {
-      setIsLoading(false)
-    }
-  }
+function ContactPage() {
+  const [sent, setSent] = useState(false);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-      
-      {status && (
-        <div className={`p-4 mb-4 rounded ${
-          status.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-        }`}>
-          {status.message}
+    <>
+      <section className="hero-gradient pt-20 pb-16">
+        <div className="container-page">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-cream-deep border border-border text-xs uppercase tracking-[0.25em]">
+            Contact
+          </span>
+          <h1 className="mt-8 font-display text-5xl md:text-7xl max-w-3xl">
+            Let's discuss your project
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+            Tell us a little about what you're planning and our team will get back to you within one business day.
+          </p>
         </div>
-      )}
-      
-      <form onSubmit={handleSubmit} className="max-w-lg">
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Name *</label>
-          <input 
-            type="text" 
-            name="name" 
-            required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
+      </section>
+
+      <section className="py-20">
+        <div className="container-page grid gap-12 lg:grid-cols-[1fr_1.4fr]">
+          <div className="space-y-8">
+            {[
+              { icon: MapPin, label: "Office", value: "London, United Kingdom" },
+              { icon: Phone, label: "Phone", value: "+44 7584 253431" },
+              { icon: Mail, label: "Email", value: "contact@am-prime-construction.co.uk" },
+            ].map((c) => (
+              <div key={c.label} className="flex items-start gap-4">
+                <span className="inline-flex items-center justify-center size-12 rounded-xl bg-gold/15 text-gold shrink-0">
+                  <c.icon className="size-5" />
+                </span>
+                <div>
+                  <div className="text-xs uppercase tracking-widest text-muted-foreground">{c.label}</div>
+                  <div className="mt-1 font-display text-xl">{c.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <form
+            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            className="bg-card border border-border/60 rounded-3xl p-8 md:p-10 space-y-5"
+          >
+            <div className="grid sm:grid-cols-2 gap-5">
+              <Field label="Name" name="name" />
+              <Field label="Email" name="email" type="email" />
+            </div>
+            <Field label="Project type" name="project" placeholder="e.g. Renovation, fit-out" />
+            <div>
+              <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
+              <textarea
+                required
+                rows={5}
+                className="mt-2 w-full rounded-xl bg-background border border-border px-4 py-3 outline-none focus:border-gold transition resize-none"
+                placeholder="Tell us about your project..."
+              />
+            </div>
+            <button type="submit" className="btn-primary">
+              Send message <Send className="size-4" />
+            </button>
+            {sent && (
+              <p className="text-sm text-gold">Thanks — we'll be in touch shortly.</p>
+            )}
+          </form>
         </div>
-        
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Email *</label>
-          <input 
-            type="email" 
-            name="email" 
-            required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Phone</label>
-          <input 
-            type="tel" 
-            name="phone"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Message *</label>
-          <textarea 
-            name="message" 
-            rows={5}
-            required
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          ></textarea>
-        </div>
-        
-        <button 
-          type="submit" 
-          disabled={isLoading}
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"
-        >
-          {isLoading ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
+      </section>
+    </>
+  );
+}
+
+function Field({ label, name, type = "text", placeholder }: { label: string; name: string; type?: string; placeholder?: string }) {
+  return (
+    <div>
+      <label htmlFor={name} className="text-xs uppercase tracking-widest text-muted-foreground">{label}</label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        required
+        placeholder={placeholder}
+        className="mt-2 w-full rounded-xl bg-background border border-border px-4 py-3 outline-none focus:border-gold transition"
+      />
     </div>
-  )
+  );
 }
