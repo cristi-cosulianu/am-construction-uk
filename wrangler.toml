@@ -7,6 +7,3 @@ compatibility_flags = ["nodejs_compat"]
 directory = "./.output/public"
 binding = "ASSETS"
 
-[[send_email]]
-name = "SEND_EMAIL"
-destination_address = "contact@am-prime-construction.co.uk"

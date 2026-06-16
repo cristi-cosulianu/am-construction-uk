@@ -1,20 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { getCloudflareEnv } from "../cloudflare-env.server";
-
-interface SendEmailBinding {
-  send(message: {
-    from: string;
-    to: string;
-    subject: string;
-    text?: string;
-    html?: string;
-  }): Promise<void>;
-}
-
-interface CloudflareEnv {
-  SEND_EMAIL: SendEmailBinding;
-}
 
 export const sendContactEmail = createServerFn({ method: "POST" })
   .inputValidator(
@@ -26,28 +11,42 @@ export const sendContactEmail = createServerFn({ method: "POST" })
     })
   )
   .handler(async ({ data }) => {
-    const env = getCloudflareEnv() as CloudflareEnv;
+    const apiKey = process.env.RESEND_API_KEY;
 
-    if (!env?.SEND_EMAIL) {
+    if (!apiKey) {
       throw new Error("Email service not configured");
     }
 
-    await env.SEND_EMAIL.send({
-      from: "contact@am-prime-construction.co.uk",
-      to: "contact@am-prime-construction.co.uk",
-      subject: `New enquiry from ${data.name}`,
-      text: [
-        `You have a new enquiry via the website contact form.`,
-        ``,
-        `Name:         ${data.name}`,
-        `Email:        ${data.email}`,
-        `Project type: ${data.projectType || "Not specified"}`,
-        ``,
-        `Message:`,
-        `─────────────────────────────────────`,
-        data.message,
-      ].join("\n"),
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "AM Prime Construction <contact@am-prime-construction.co.uk>",
+        to: ["contact@am-prime-construction.co.uk"],
+        reply_to: data.email,
+        subject: `New enquiry from ${data.name}`,
+        text: [
+          "New enquiry via the website contact form.",
+          "",
+          `Name:         ${data.name}`,
+          `Email:        ${data.email}`,
+          `Project type: ${data.projectType || "Not specified"}`,
+          "",
+          "Message:",
+          "─────────────────────────────────────",
+          data.message,
+        ].join("\n"),
+      }),
     });
+
+    if (!res.ok) {
+      const body = await res.text();
+      console.error("Resend error:", res.status, body);
+      throw new Error("Failed to send email");
+    }
 
     return { ok: true };
   });
