@@ -1,6 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
-import { getEvent } from "vinxi/http";
+import { getCloudflareEnv } from "../cloudflare-env.server";
 
 interface SendEmailBinding {
   send(message: {
@@ -26,9 +26,7 @@ export const sendContactEmail = createServerFn({ method: "POST" })
     })
   )
   .handler(async ({ data }) => {
-    const event = getEvent();
-    const env = (event.context as { cloudflare?: { env: CloudflareEnv } })
-      .cloudflare?.env;
+    const env = getCloudflareEnv() as CloudflareEnv;
 
     if (!env?.SEND_EMAIL) {
       throw new Error("Email service not configured");
