@@ -8,12 +8,15 @@
 // the env object is the same for every request in that isolate, so a
 // module-level reference is safe.
 
-let _env: Record<string, unknown> = {};
+// Use globalThis so the reference is shared even if Rollup inlines this module
+// into multiple chunks — unlike a module-level variable, globalThis is a single
+// object for the entire Workers isolate.
+const KEY = "__cf_env__";
 
 export function setCloudflareEnv(env: Record<string, unknown>) {
-  _env = env;
+  (globalThis as Record<string, unknown>)[KEY] = env;
 }
 
-export function getCloudflareEnv() {
-  return _env;
+export function getCloudflareEnv(): Record<string, unknown> {
+  return ((globalThis as Record<string, unknown>)[KEY] as Record<string, unknown>) ?? {};
 }
