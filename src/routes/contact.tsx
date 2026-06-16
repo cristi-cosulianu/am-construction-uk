@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { useState, type FormEvent } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { toast } from "sonner";
+import { sendContactEmail } from "@/lib/api/contact.functions";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -16,6 +19,31 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: (data: {
+      name: string;
+      email: string;
+      projectType: string;
+      message: string;
+    }) => sendContactEmail({ data }),
+    onSuccess: () => setSent(true),
+    onError: () =>
+      toast.error(
+        "Failed to send your message. Please try again or email us directly at contact@am-prime-construction.co.uk"
+      ),
+  });
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    mutation.mutate({
+      name: fd.get("name") as string,
+      email: fd.get("email") as string,
+      projectType: fd.get("project") as string,
+      message: fd.get("message") as string,
+    });
+  }
 
   return (
     <>
@@ -54,7 +82,7 @@ function ContactPage() {
           </div>
 
           <form
-            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            onSubmit={handleSubmit}
             className="bg-card border border-border/60 rounded-3xl p-8 md:p-10 space-y-5"
           >
             <div className="grid sm:grid-cols-2 gap-5">
@@ -66,13 +94,20 @@ function ContactPage() {
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Message</label>
               <textarea
                 required
+                name="message"
                 rows={5}
+                minLength={10}
                 className="mt-2 w-full rounded-xl bg-background border border-border px-4 py-3 outline-none focus:border-gold transition resize-none"
                 placeholder="Tell us about your project..."
               />
             </div>
-            <button type="submit" className="btn-primary">
-              Send message <Send className="size-4" />
+            <button
+              type="submit"
+              className="btn-primary"
+              disabled={mutation.isPending || sent}
+            >
+              {mutation.isPending ? "Sending…" : "Send message"}
+              <Send className="size-4" />
             </button>
             {sent && (
               <p className="text-sm text-gold">Thanks — we'll be in touch shortly.</p>
